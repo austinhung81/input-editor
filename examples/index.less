@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap');
+
+html, 
+body {
+  font-family: 'Open Sans', sans-serif;
+  height: 100%;
+}
+::placeholder {
+  font-family: 'Open Sans', sans-serif;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 64px;
+}
+.emails-wrapper {
+  width: 540px;
+  background: #FFFFFF;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+.emails-container {
+  background: #F8F8F7;
+  padding: 32px 50px;
+  .title {
+    font-size: 20px;
+    color: #050038;
+    margin-bottom: 32px;
+    span {
+      font-weight: 700;
+    }
+  }
+}
+.emails-footer {
+  display: flex;
+  padding: 32px 50px;
+  .btn {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    line-height: 24px;
+    color: #FFFFFF;
+    background: #4262FF;
+    border-radius: 6px;
+    border: 0;
+    padding: 8px 16px;
+    outline: none;
+    cursor: pointer;
+    + .btn {
+      margin-left: 16px;
+    }
+    &:hover {
+      background: rgba(66, 98, 255, .95);
+    }
+  }
+}
+.input-editor {
+  height: 96px;
+  overflow: auto;
+}
