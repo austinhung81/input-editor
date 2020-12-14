@@ -4,7 +4,7 @@ const timestamp = new Date().getTime();
 const container = <HTMLElement>document.querySelector('#input-editor-container');
 const config = {
   inputType: 'email',
-  placeholder: "Enter email addresses…",
+  placeholder: "Add email accounts...",
 }
 const inputEditor = new InputEditor(container, config);
 
