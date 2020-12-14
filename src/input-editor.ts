@@ -11,12 +11,13 @@ import './input-editor.less';
 const NAME = 'input-editor';
 
 const VALID = 'valid';
-const INVALID = 'invalid'
+const INVALID = 'invalid';
+const PLACEHOLDER = 'Enter value...';
 
 interface InputEditorProps {
+  source?: string[],
   inputType?: string,
   placeholder?: string,
-  source?: string[],
 }
 
 /**
@@ -36,8 +37,12 @@ class InputEditor {
     const {
       source = [],
       inputType = 'email',
-      placeholder = 'Enter value...',
+      placeholder = PLACEHOLDER,
     } = config;
+    this._inputType = inputType;
+    this._tokens = [];
+    this._tokenElements = [];
+
     this._input = document.createElement('input');
     this._input.className = `${NAME}-input`;
     this._input.placeholder = placeholder;
@@ -49,11 +54,7 @@ class InputEditor {
     this._container = document.createElement('div');
     this._container.className = `${NAME}`;
     this._container.appendChild(this._input);
-    this._container.addEventListener("click", this._handleContainerClick);
-    
-    this._inputType = inputType;
-    this._tokens = [];
-    this._tokenElements = [];
+    this._container.addEventListener('click', this._handleInputFocus);
 
     this._setTokens(source);
 
@@ -99,7 +100,7 @@ class InputEditor {
     removeBtn.className = `${NAME}-token-btn-remove`;
     removeBtn.addEventListener('click', () => {
       const index = this._tokenElements.indexOf(elm);
-      this._removeTokenByIndex(index);
+      this._removeToken(index);
     });
     removeBtn.append(svg);
     return removeBtn;
@@ -124,12 +125,16 @@ class InputEditor {
     tokens.length && this._setTokens(tokens);
   };
 
-  _removeTokenByIndex = (index: number) => {
+  _removeToken = (index: number) => {
     const tokenElement = this._container.children[index];
     this._container.removeChild(tokenElement);
 
     this._tokens.splice(index, 1);
     this._tokenElements.splice(index, 1);
+  };
+
+  _handleInputFocus = () => {
+    this._input.focus();
   };
 
   _handleKeyDown = (event: KeyboardEvent) => {
@@ -138,7 +143,7 @@ class InputEditor {
       this._handleTokensAdded();
     }
     if (key === 'Backspace') {
-      this._input.selectionEnd === 0 && this._removeTokenByIndex(this._tokens.length - 1);
+      this._input.selectionEnd === 0 && this._removeToken(this._tokens.length - 1);
     }
   };
 
@@ -149,10 +154,6 @@ class InputEditor {
 
   _handleBlur = () => {
     this._handleTokensAdded();
-  };
-
-  _handleContainerClick = () => {
-    this._input.focus();
   };
 }
 
