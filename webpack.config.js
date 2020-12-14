@@ -4,11 +4,13 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   cache: true,
   entry: './src/input-editor.ts',
+  target: 'web',
   mode: 'production',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'input-editor.js',
     library: 'InputEditor',
+    libraryExport: 'default',
     libraryTarget: 'umd',
   },
   module: {
