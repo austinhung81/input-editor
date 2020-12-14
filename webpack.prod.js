@@ -5,7 +5,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const timestamp = new Date().getTime();
-const publicPath = '/'; //for github page
+const publicPath = '/input-editor/'; //for github page
 
 module.exports = {
   cache: true,
