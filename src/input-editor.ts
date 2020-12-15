@@ -127,8 +127,10 @@ class InputEditor {
 
   _removeToken = (index: number) => {
     const tokenElement = this._container.children[index];
+    if (!tokenElement) {
+      return;
+    }
     this._container.removeChild(tokenElement);
-
     this._tokens.splice(index, 1);
     this._tokenElements.splice(index, 1);
   };
