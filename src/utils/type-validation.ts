@@ -8,9 +8,9 @@ const REGEX = {
   'email': /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
 }
 
-export default function validateType(type: string, str: string) {
+export default function validateType(type: string, str: string): boolean {
   if (type === 'email') {
-    return REGEX['email'].test(str);
+    return REGEX.email.test(str);
   }
   return false;
 }

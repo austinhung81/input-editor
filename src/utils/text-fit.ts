@@ -1,4 +1,4 @@
-export default function textFit(str: string) {
+export default function textFit(str: string): number {
   const container = document.createElement('span');
   container.style.visibility = 'hidden';
   container.style.position = 'absolute';
