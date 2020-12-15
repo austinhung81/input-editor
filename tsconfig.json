@@ -26,6 +26,6 @@
     "sourceMap": true,
     "tsBuildInfoFile": "./.cache/typescript"
   },
-  "include": ["src/**/**/*"],
+  "include": ["**/*.ts"],
   "exclude": ["node_modules"]
 }

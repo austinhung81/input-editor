@@ -9,7 +9,7 @@ const publicPath = '/input-editor/'; //for github page
 module.exports = {
   cache: true,
   entry: {
-    app: './examples/index.js',
+    app: './examples/index.ts',
   },
   mode: 'production',
   devtool: 'source-map',
@@ -22,7 +22,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.ts?$/u,
+        test: /\.t?js?$/u,
         use: [
           {
             loader: "babel-loader",
