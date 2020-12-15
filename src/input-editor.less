@@ -29,6 +29,7 @@
   }
 }
 .input-editor-token-btn-remove {
+  position: relative;
   display: inline-block;
   vertical-align: top;
   width: 12px;
@@ -36,10 +37,21 @@
   margin-top: 4px;
   margin-left: 8px;
   cursor: pointer;
-  svg {
-    fill: currentColor;
-    width: 12px;
-    vertical-align: top;
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 1px;
+    height: 10px;
+    width: 1px;
+    background-color: #050038;
+  }
+  &::before {
+    transform: rotate(45deg);
+  }
+  &::after {
+    transform: rotate(-45deg);
   }
 }
 
