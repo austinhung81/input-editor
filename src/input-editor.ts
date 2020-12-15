@@ -98,17 +98,12 @@ class InputEditor {
   };
 
   _createRemoveButton = (elm: HTMLElement): HTMLElement => {
-    const svg: SVGSVGElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     const removeBtn: HTMLElement = document.createElement('span');
-    svg.setAttribute('viewBox', '0 0 24 24')
-    svg.setAttribute('fill', 'none')
-    svg.innerHTML = `<path fill-rule="evenodd" clip-rule="evenodd" d="M10.5858 12L4.2218 5.63602L5.63602 4.2218L12 10.5858L18.3639 4.2218L19.7782 5.63602L13.4142 12L19.7782 18.3639L18.3639 19.7782L12 13.4142L5.63602 19.7782L4.2218 18.3639L10.5858 12Z" />`;
     removeBtn.className = `${NAME}-token-btn-remove`;
     removeBtn.addEventListener('click', () => {
       const index = this._tokenElements.indexOf(elm);
       this._removeToken(index);
     });
-    removeBtn.append(svg);
     return removeBtn;
   }
 
