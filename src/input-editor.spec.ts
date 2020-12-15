@@ -9,7 +9,7 @@ describe('initializing InputEditor', () => {
     new InputEditor(document.body);
     const input = document.querySelector('.input-editor-input');
     const inputEditorContainer = document.body.querySelector('.input-editor');
-    const result = inputEditorContainer && inputEditorContainer.contains(input);
+    const result = inputEditorContainer?.contains(input);
     expect(result).toBe(true);
   });
 
@@ -17,7 +17,7 @@ describe('initializing InputEditor', () => {
     const placeholder = 'Enter an email';
     new InputEditor(document.body, {placeholder});
     const input = document.querySelector('input');
-    const inputPlaceholder = input && input.placeholder
+    const inputPlaceholder = input?.placeholder
     expect(inputPlaceholder).toEqual(placeholder);
   });
 
@@ -27,7 +27,7 @@ describe('initializing InputEditor', () => {
     inputEditor.createToken(token);
     const validToken = document.querySelector('.input-editor-token.valid');
     const inputEditorContainer = document.body.querySelector('.input-editor');
-    const result = inputEditorContainer && inputEditorContainer.contains(validToken);
+    const result = inputEditorContainer?.contains(validToken);
     expect(result).toBe(true);
   });
 
@@ -37,7 +37,7 @@ describe('initializing InputEditor', () => {
     inputEditor.createToken(token);
     const invalidToken = document.querySelector('.input-editor-token.invalid');
     const inputEditorContainer = document.body.querySelector('.input-editor');
-    const result = inputEditorContainer && inputEditorContainer.contains(invalidToken);
+    const result = inputEditorContainer?.contains(invalidToken);
     expect(result).toBe(true);
   });
 })
