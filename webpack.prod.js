@@ -9,7 +9,7 @@ const publicPath = '/input-editor/'; //for github page
 module.exports = {
   cache: true,
   entry: {
-    app: './examples/index.ts',
+    app: './examples/index.js',
   },
   mode: 'production',
   devtool: 'source-map',

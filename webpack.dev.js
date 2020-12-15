@@ -15,7 +15,7 @@ module.exports = {
   },
   devtool: 'cheap-module-eval-source-map',
   entry: {
-    app: './examples/index.ts',
+    app: './examples/index.js',
   },
   mode: 'development',
   module: {
