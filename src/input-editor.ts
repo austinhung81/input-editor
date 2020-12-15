@@ -30,9 +30,13 @@ interface InputEditorProps {
 
 class InputEditor {
   _input: HTMLInputElement;
+
   _inputType: string;
+
   _container: HTMLElement;
+
   _tokens: string[];
+
   _tokenElements: HTMLElement[];
 
   constructor(element: HTMLElement, config: InputEditorProps = {}) {
@@ -65,13 +69,13 @@ class InputEditor {
 
   // Getters
 
-  get getTokenList() {
+  get getTokenList(): string[] {
     return this._tokens;
-  };
+  }
 
-  get getValidTokenList() {
+  get getValidTokenList(): string[] {
     return this._tokens.filter(token => validateType(this._inputType, token));
-  };
+  }
 
   // Public
 
@@ -83,7 +87,7 @@ class InputEditor {
 
   _createTokenElement = (token: string): HTMLElement => {
     const isValid: boolean = validateType(this._inputType, token);
-    const className: string = `${NAME}-token ${isValid ? VALID : INVALID}`;
+    const className = `${NAME}-token ${isValid ? VALID : INVALID}`;
     const tokenElement: HTMLElement = document.createElement('span');
     tokenElement.className = className;
     tokenElement.innerText = token;
@@ -114,8 +118,8 @@ class InputEditor {
       this._container.insertBefore(tokenElement, this._input);
       this._tokens.push(token);
       this._tokenElements.push(tokenElement);
+      return;
     });
-    this._input.value = '';
   };
 
   _checkIsToken = (tokens: string[] | string): void | undefined => {
@@ -124,12 +128,14 @@ class InputEditor {
       !!validTokens.length && this._setTokens(validTokens);
     }
     if (Array.isArray(tokens) && !!tokens.length) {
-      const validTokens: string[] = tokens.map((token: string): string => {
-        return token.replace(/(,\s*$)|(^,*)|(\s)/g, '');
-      });
+      const validTokens: string[] = tokens.reduce((filtered: string[], token: string): string[] => {
+        token.replace(/(,\s*$)|(^,*)|(\s)/g, '');
+        !!token && filtered.push(token);
+        return filtered;
+      }, []);
       !!validTokens.length && this._setTokens(validTokens);
     }
-    return;
+    this._input.value = '';
   }
 
   _removeToken = (tokenIdx: number): void => {
