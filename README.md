@@ -14,6 +14,7 @@ Here is a complete example:
 <script>
   const container = document.querySelector('#input-editor');
   const config = {
+    source: ['test@gmai.com', 'test2@gmail.com'],
     inputType: 'email',
     placeholder: 'Add email accounts...',
   }
@@ -27,7 +28,7 @@ Here is a complete example:
 # Options
 | Name | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
-| scoure | array | [] | Can be an array of strings. |
+| source | array | [] | Can be an array of strings. |
 | inputType | string | 'email' | This is useful for specifying an input type like `email`, `url` or `tel`. Currently only supports `email` format. |
 | placeholder | string | 'Enter value...' | The placeholder specifies a short hint that describes the expected value of an input field. |
 
