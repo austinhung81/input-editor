@@ -1,7 +1,6 @@
 const path = require('path');
 
 const webpack = require('webpack');
-const TerserPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const timestamp = new Date().getTime();
@@ -27,9 +26,6 @@ module.exports = {
         use: [
           {
             loader: "babel-loader",
-            options: {
-              presets: ['@babel/preset-env']
-            }
           },
           {
             loader: 'ts-loader',
@@ -67,21 +63,11 @@ module.exports = {
     }),
   ],
   resolve: {
-    extensions: ['.ts'],
+    extensions: ['.ts', '.js'],
     mainFields: ['browser', 'module', 'main'],
   },
   optimization: {
     minimize: true,
-    minimizer: [
-      new TerserPlugin({
-        terserOptions: {
-          output: {
-            comments: false,
-          },
-        },
-        extractComments: false,
-      }),
-    ],
     nodeEnv: 'production',
   },
 };

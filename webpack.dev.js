@@ -25,9 +25,6 @@ module.exports = {
         use: [
           {
             loader: "babel-loader",
-            options: {
-              presets: ['@babel/preset-env']
-            }
           },
           {
             loader: 'ts-loader',
@@ -71,7 +68,7 @@ module.exports = {
     }),
   ],
   resolve: {
-    extensions: ['.js', '.ts'],
+    extensions: ['.ts', '.js'],
     mainFields: ['browser', 'module', 'main'],
   },
   watch: true,

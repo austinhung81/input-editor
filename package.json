@@ -1,7 +1,7 @@
 {
   "name": "input-editor",
   "version": "1.0.0",
-  "description": "Input field with tokens",
+  "description": "A tagging/tokenizer input filed editor",
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.dev.js",
     "prebuild": "rm -rf dist",
@@ -12,18 +12,17 @@
   "author": "Austin Hung",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.12.10",
-    "@babel/plugin-proposal-class-properties": "^7.12.1",
-    "@babel/plugin-proposal-decorators": "^7.12.1",
-    "@babel/preset-env": "^7.12.10",
-    "@babel/preset-typescript": "^7.12.7",
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-typescript": "^7.6.0",
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
     "@types/jest": "^26.0.19",
     "@types/react-test-renderer": "^17.0.0",
     "@types/webpack-env": "^1.16.0",
     "autoprefixer": "^10.1.0",
-    "babel-loader": "^8.2.2",
+    "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^5.0.1",
     "eslint": "^7.15.0",
@@ -62,5 +61,8 @@
     "input-editor",
     "token",
     "tokenfield"
-  ]
+  ],
+  "dependencies": {
+    "core-js": "^2.6.5"
+  }
 }

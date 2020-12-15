@@ -21,9 +21,6 @@ module.exports = {
         use: [
           {
             loader: "babel-loader",
-            options: {
-              presets: ['@babel/preset-env']
-            }
           },
           {
             loader: 'ts-loader',
@@ -44,7 +41,11 @@ module.exports = {
     new CleanWebpackPlugin(),
   ],
   resolve: {
-    extensions: ['.ts'],
+    extensions: ['.ts', '.js'],
     mainFields: ['browser', 'module', 'main'],
+  },
+  optimization: {
+    minimize: true,
+    nodeEnv: 'production',
   },
 };
